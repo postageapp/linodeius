@@ -2,6 +2,8 @@
 
 This is a Node.js client for Linode's API.
 
+**This is a work in progress.**
+
 ## Installation
 
 As with any NPM package:
