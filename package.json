@@ -1,0 +1,33 @@
+{
+  "name": "linodeius",
+  "version": "0.1.0",
+  "description": "Linode API Client",
+  "main": "lib/linodeius.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/postageapp/linodeius.git"
+  },
+  "keywords": [
+    "linode",
+    "api"
+  ],
+  "author": "Scott Tadman <tadman@postageapp.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/postageapp/linodeius/issues"
+  },
+  "homepage": "https://github.com/postageapp/linodeius#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cheerio": "^0.20.0",
+    "gulp": "^3.9.1",
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "request": "^2.72.0"
+  }
+}
