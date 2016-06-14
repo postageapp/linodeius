@@ -1,0 +1,70 @@
+{
+  "name": "domain.update()",
+  "params": {
+    "DomainID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "Domain": {
+      "type": "string",
+      "required": false,
+      "description": "The zone's name"
+    },
+    "Description": {
+      "type": "string",
+      "required": false,
+      "description": "Currently undisplayed."
+    },
+    "Type": {
+      "type": "string",
+      "required": false,
+      "description": "master or slave"
+    },
+    "SOA_Email": {
+      "type": "string",
+      "required": false,
+      "description": "Required when type=master"
+    },
+    "Refresh_sec": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    },
+    "Retry_sec": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    },
+    "Expire_sec": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    },
+    "TTL_sec": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    },
+    "lpm_displayGroup": {
+      "type": "string",
+      "required": false,
+      "description": "Display group in the Domain list inside the Linode DNS Manager"
+    },
+    "status": {
+      "type": "numeric",
+      "required": false,
+      "description": "0, 1, or 2 (disabled, active, edit mode)"
+    },
+    "master_ips": {
+      "type": "string",
+      "required": false,
+      "description": "When type=slave, the zone's master DNS servers list, semicolon separated "
+    },
+    "axfr_ips": {
+      "type": "string",
+      "required": false,
+      "description": "IP addresses allowed to AXFR the entire zone, semicolon separated"
+    }
+  }
+}

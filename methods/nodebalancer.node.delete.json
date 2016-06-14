@@ -1,0 +1,10 @@
+{
+  "name": "nodebalancer.node.delete()",
+  "params": {
+    "NodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": "The NodeID to delete"
+    }
+  }
+}

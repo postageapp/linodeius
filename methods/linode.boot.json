@@ -1,0 +1,15 @@
+{
+  "name": "linode.boot()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "ConfigID": {
+      "type": "numeric",
+      "required": false,
+      "description": "The ConfigID to boot, available from linode.config.list()."
+    }
+  }
+}

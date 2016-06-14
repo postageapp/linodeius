@@ -1,2 +1,21 @@
 #!/usr/bin/env node
 
+var Linode = require('../lib/linodeius');
+
+var program = require('commander');
+var version = require('../package.json').version;
+
+program
+  .version(version)
+  .option('-k, --api-key <key>', 'Path to Linode API key');
+
+program
+  .command('list')
+  .description('Lists available commands')
+  .action(function() {
+    Linode.methods().forEach(function(method) {
+      console.log(method);
+    })
+  });
+
+program.parse(process.argv);

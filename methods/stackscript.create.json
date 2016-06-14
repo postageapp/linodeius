@@ -1,0 +1,35 @@
+{
+  "name": "stackscript.create()",
+  "params": {
+    "Label": {
+      "type": "string",
+      "required": true,
+      "description": "The Label for this StackScript"
+    },
+    "Description": {
+      "type": "string",
+      "required": false,
+      "description": ""
+    },
+    "DistributionIDList": {
+      "type": "string",
+      "required": true,
+      "description": "Comma delimited list of DistributionIDs that this script works on "
+    },
+    "isPublic": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether this StackScript is published in the Library, for everyone to use"
+    },
+    "rev_note": {
+      "type": "string",
+      "required": false,
+      "description": ""
+    },
+    "script": {
+      "type": "string",
+      "required": true,
+      "description": "The actual script"
+    }
+  }
+}

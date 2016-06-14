@@ -1,0 +1,15 @@
+{
+  "name": "image.list()",
+  "params": {
+    "pending": {
+      "type": "numeric",
+      "required": false,
+      "description": "Show images currently being created."
+    },
+    "ImageID": {
+      "type": "numeric",
+      "required": false,
+      "description": "Request information for a specific gold-master image"
+    }
+  }
+}

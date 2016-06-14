@@ -1,0 +1,10 @@
+{
+  "name": "image.delete()",
+  "params": {
+    "ImageID": {
+      "type": "numeric",
+      "required": true,
+      "description": "The ID of the gold-master image to delete"
+    }
+  }
+}

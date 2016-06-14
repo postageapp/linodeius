@@ -1,0 +1,10 @@
+{
+  "name": "stackscript.list()",
+  "params": {
+    "StackScriptID": {
+      "type": "numeric",
+      "required": false,
+      "description": "Limits the list to the specified StackScriptID"
+    }
+  }
+}

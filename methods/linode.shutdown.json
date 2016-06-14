@@ -1,0 +1,10 @@
+{
+  "name": "linode.shutdown()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    }
+  }
+}

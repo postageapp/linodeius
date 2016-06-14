@@ -1,0 +1,35 @@
+{
+  "name": "linode.disk.createfromimage()",
+  "params": {
+    "ImageID": {
+      "type": "numeric",
+      "required": true,
+      "description": "The ID of the frozen image to deploy from"
+    },
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": "Specifies the Linode to deploy on to"
+    },
+    "Label": {
+      "type": "string",
+      "required": false,
+      "description": "The label of this new disk image"
+    },
+    "size": {
+      "type": "numeric",
+      "required": false,
+      "description": "The size of the disk image to creates. Defaults to the minimum size required for the requested image"
+    },
+    "rootPass": {
+      "type": "string",
+      "required": false,
+      "description": "Optionally sets the root password at deployment time. If a password is not provided the existing root password of the frozen image will not be modified"
+    },
+    "rootSSHKey": {
+      "type": "string",
+      "required": false,
+      "description": "Optionally sets this string into /root/.ssh/authorized_keys upon image deployment"
+    }
+  }
+}

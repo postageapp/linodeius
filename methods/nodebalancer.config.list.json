@@ -1,0 +1,15 @@
+{
+  "name": "nodebalancer.config.list()",
+  "params": {
+    "NodeBalancerID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "ConfigID": {
+      "type": "numeric",
+      "required": false,
+      "description": "Limits the list to the specified ConfigID"
+    }
+  }
+}

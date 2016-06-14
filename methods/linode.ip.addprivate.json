@@ -1,0 +1,10 @@
+{
+  "name": "linode.ip.addprivate()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    }
+  }
+}

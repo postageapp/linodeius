@@ -1,0 +1,15 @@
+{
+  "name": "linode.config.delete()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "ConfigID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    }
+  }
+}

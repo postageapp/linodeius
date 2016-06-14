@@ -1,0 +1,15 @@
+{
+  "name": "domain.resource.list()",
+  "params": {
+    "DomainID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "ResourceID": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    }
+  }
+}

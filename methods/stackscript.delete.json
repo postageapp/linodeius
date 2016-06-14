@@ -1,0 +1,10 @@
+{
+  "name": "stackscript.delete()",
+  "params": {
+    "StackScriptID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    }
+  }
+}

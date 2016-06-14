@@ -1,0 +1,10 @@
+{
+  "name": "nodebalancer.list()",
+  "params": {
+    "NodeBalancerID": {
+      "type": "numeric",
+      "required": false,
+      "description": "Limits the list to the specified NodeBalancerID"
+    }
+  }
+}

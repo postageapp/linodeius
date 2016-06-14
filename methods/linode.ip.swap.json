@@ -1,0 +1,20 @@
+{
+  "name": "linode.ip.swap()",
+  "params": {
+    "IPAddressID": {
+      "type": "numeric",
+      "required": true,
+      "description": "The IPAddressID of an IP Address to transfer or swap"
+    },
+    "withIPAddressID": {
+      "type": "numeric",
+      "required": false,
+      "description": "The IP Address ID to swap"
+    },
+    "toLinodeID": {
+      "type": "numeric",
+      "required": false,
+      "description": "The LinodeID of the Linode where IPAddressID will be transfered"
+    }
+  }
+}

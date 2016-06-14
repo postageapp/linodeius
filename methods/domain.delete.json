@@ -1,0 +1,10 @@
+{
+  "name": "domain.delete()",
+  "params": {
+    "DomainID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    }
+  }
+}

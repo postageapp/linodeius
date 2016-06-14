@@ -1,0 +1,15 @@
+{
+  "name": "linode.ip.setrdns()",
+  "params": {
+    "IPAddressID": {
+      "type": "numeric",
+      "required": true,
+      "description": "The IPAddressID of the address to update"
+    },
+    "Hostname": {
+      "type": "string",
+      "required": true,
+      "description": "The hostname to set the reverse DNS to"
+    }
+  }
+}

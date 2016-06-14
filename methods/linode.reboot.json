@@ -1,0 +1,15 @@
+{
+  "name": "linode.reboot()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "ConfigID": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    }
+  }
+}

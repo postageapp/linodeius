@@ -1,0 +1,50 @@
+{
+  "name": "domain.resource.create()",
+  "params": {
+    "DomainID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "Type": {
+      "type": "string",
+      "required": true,
+      "description": "One of: NS, MX, A, AAAA, CNAME, TXT, or SRV"
+    },
+    "Name": {
+      "type": "string",
+      "required": false,
+      "description": "The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server."
+    },
+    "Target": {
+      "type": "string",
+      "required": false,
+      "description": "When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request."
+    },
+    "Priority": {
+      "type": "numeric",
+      "required": false,
+      "description": "Priority for MX and SRV records, 0-255"
+    },
+    "Weight": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    },
+    "Port": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    },
+    "Protocol": {
+      "type": "string",
+      "required": false,
+      "description": "The protocol to append to an SRV record.  Ignored on other record types."
+    },
+    "TTL_sec": {
+      "type": "numeric",
+      "required": false,
+      "description": "TTL.  Leave as 0 to accept our default."
+    }
+  }
+}

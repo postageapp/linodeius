@@ -1,0 +1,45 @@
+{
+  "name": "linode.disk.createfromstackscript()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "StackScriptID": {
+      "type": "numeric",
+      "required": true,
+      "description": "The StackScript to create this image from"
+    },
+    "StackScriptUDFResponses": {
+      "type": "string",
+      "required": true,
+      "description": "JSON encoded name/value pairs, answering this StackScript's User Defined Fields"
+    },
+    "DistributionID": {
+      "type": "numeric",
+      "required": true,
+      "description": "Which Distribution to apply this StackScript to.  Must be one from the script's DistributionIDList"
+    },
+    "Label": {
+      "type": "string",
+      "required": true,
+      "description": "The label of this new disk image"
+    },
+    "Size": {
+      "type": "numeric",
+      "required": true,
+      "description": "Size of this disk image in MB"
+    },
+    "rootPass": {
+      "type": "string",
+      "required": true,
+      "description": "The root user's password"
+    },
+    "rootSSHKey": {
+      "type": "string",
+      "required": false,
+      "description": "Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration."
+    }
+  }
+}

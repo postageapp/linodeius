@@ -1,0 +1,10 @@
+{
+  "name": "linode.ip.addpublic()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": "The LinodeID of the Linode that will be assigned an additional public IP address"
+    }
+  }
+}

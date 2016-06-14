@@ -1,0 +1,15 @@
+{
+  "name": "linode.disk.delete()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "DiskID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    }
+  }
+}

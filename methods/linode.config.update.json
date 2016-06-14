@@ -1,0 +1,95 @@
+{
+  "name": "linode.config.update()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": false,
+      "description": ""
+    },
+    "ConfigID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "KernelID": {
+      "type": "numeric",
+      "required": false,
+      "description": "The KernelID for this profile.  Found in avail.kernels()"
+    },
+    "Label": {
+      "type": "string",
+      "required": false,
+      "description": "The Label for this profile"
+    },
+    "Comments": {
+      "type": "string",
+      "required": false,
+      "description": "Comments you wish to save along with this profile"
+    },
+    "RAMLimit": {
+      "type": "numeric",
+      "required": false,
+      "description": "RAMLimit in MB.  0 for max."
+    },
+    "DiskList": {
+      "type": "string",
+      "required": false,
+      "description": "A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd."
+    },
+    "virt_mode": {
+      "type": "string",
+      "required": false,
+      "description": "Controls the virtualization mode. One of 'paravirt', 'fullvirt' "
+    },
+    "RunLevel": {
+      "type": "string",
+      "required": false,
+      "description": "One of 'default', 'single', 'binbash' "
+    },
+    "RootDeviceNum": {
+      "type": "numeric",
+      "required": false,
+      "description": "Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom."
+    },
+    "RootDeviceCustom": {
+      "type": "string",
+      "required": false,
+      "description": "A custom root device setting."
+    },
+    "RootDeviceRO": {
+      "type": "boolean",
+      "required": false,
+      "description": "Enables the 'ro' kernel flag.  Modern distros want this. "
+    },
+    "helper_disableUpdateDB": {
+      "type": "boolean",
+      "required": false,
+      "description": "Enable the disableUpdateDB filesystem helper"
+    },
+    "helper_distro": {
+      "type": "boolean",
+      "required": false,
+      "description": "Enable the Distro filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this."
+    },
+    "helper_xen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Deprecated - use helper_distro."
+    },
+    "helper_depmod": {
+      "type": "boolean",
+      "required": false,
+      "description": "Creates an empty modprobe file for the kernel you're booting. "
+    },
+    "helper_network": {
+      "type": "boolean",
+      "required": false,
+      "description": "Automatically creates network configuration files for your distro and places them into your filesystem."
+    },
+    "devtmpfs_automount": {
+      "type": "boolean",
+      "required": false,
+      "description": "Controls if pv_ops kernels should automount devtmpfs at boot. "
+    }
+  }
+}

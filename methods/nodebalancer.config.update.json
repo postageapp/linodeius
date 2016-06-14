@@ -1,0 +1,80 @@
+{
+  "name": "nodebalancer.config.update()",
+  "params": {
+    "ConfigID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "Port": {
+      "type": "numeric",
+      "required": false,
+      "description": "Port to bind to on the public interfaces. 1-65534"
+    },
+    "Protocol": {
+      "type": "string",
+      "required": false,
+      "description": "Either 'tcp', 'http', or 'https'"
+    },
+    "Algorithm": {
+      "type": "string",
+      "required": false,
+      "description": "Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'"
+    },
+    "Stickiness": {
+      "type": "string",
+      "required": false,
+      "description": "Session persistence.  One of 'none', 'table', 'http_cookie'"
+    },
+    "check": {
+      "type": "string",
+      "required": false,
+      "description": "Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'"
+    },
+    "check_interval": {
+      "type": "numeric",
+      "required": false,
+      "description": "Seconds between health check probes.  2-3600"
+    },
+    "check_timeout": {
+      "type": "string",
+      "required": false,
+      "description": "Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval."
+    },
+    "check_attempts": {
+      "type": "string",
+      "required": false,
+      "description": "Number of failed probes before taking a node out of rotation. 1-30"
+    },
+    "check_path": {
+      "type": "string",
+      "required": false,
+      "description": "When check=http, the path to request"
+    },
+    "check_body": {
+      "type": "string",
+      "required": false,
+      "description": "When check=http, a regex to match within the first 16,384 bytes of the response body"
+    },
+    "check_passive": {
+      "type": "boolean",
+      "required": false,
+      "description": "Enable passive checks based on observing communication with back-end nodes."
+    },
+    "ssl_cert": {
+      "type": "string",
+      "required": false,
+      "description": "SSL certificate served by the NodeBalancer when the protocol is 'https'"
+    },
+    "ssl_key": {
+      "type": "string",
+      "required": false,
+      "description": "Unpassphrased private key for the SSL certificate when protocol is 'https'"
+    },
+    "cipher_suite": {
+      "type": "string",
+      "required": false,
+      "description": "SSL cipher suite to enforce. One of 'recommended', 'legacy'"
+    }
+  }
+}

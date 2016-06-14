@@ -1,0 +1,20 @@
+{
+  "name": "linode.disk.resize()",
+  "params": {
+    "LinodeID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "DiskID": {
+      "type": "numeric",
+      "required": true,
+      "description": ""
+    },
+    "size": {
+      "type": "numeric",
+      "required": true,
+      "description": "The requested new size of this Disk in MB"
+    }
+  }
+}
