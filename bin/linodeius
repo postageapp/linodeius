@@ -1,13 +1,33 @@
 #!/usr/bin/env node
 
-var Linode = require('../lib/linodeius');
+// == Imports ===============================================================
 
-var program = require('commander');
-var version = require('../package.json').version;
+const fs = require('fs');
+const Linode = require('../lib/linodeius');
+
+const program = require('commander');
+
+// == Local Constants =======================================================
+
+const version = require('../package.json').version;
+
+// == Support Functions =====================================================
+
+function apiKey(keyPath) {
+  var apiKey;
+
+  if (keyPath) {
+    return fs.readFileSync(keyPath).toString();
+  }
+
+  return process.env['LINODE_API_KEY'];
+}
+
+// == Main ==================================================================
 
 program
   .version(version)
-  .option('-k, --api-key <key>', 'Path to Linode API key');
+  .option('-k --api-key <api_key>', 'Path to Linode API key');
 
 program
   .command('list')
@@ -17,5 +37,22 @@ program
       console.log(method);
     })
   });
+
+program
+  .command('*')
+  .description('Execute arbitrary Linode API call')
+  .option('-h, --help', 'Help about this command')
+  .action(function(cmd) {
+    var linode = new Linode(apiKey(program.apiKey));
+
+    // FIX: Warn on invalid command, linode[cmd] does not exist
+    linode[cmd]().then(function(response) {
+      console.log('Response:');
+      console.log(response);
+    }).catch(function(err) {
+      console.log('Error:');
+      console.log(err);
+    });
+  })
 
 program.parse(process.argv);
