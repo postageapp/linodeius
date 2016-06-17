@@ -1,7 +1,5 @@
 require('./harness');
 
-const Linode = require('../lib/linodeius');
-
 it('should return an API specification', function() {
   var api = new Linode();
 
