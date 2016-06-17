@@ -1,16 +1,24 @@
 require('./harness');
 
-it('should return an API specification', function() {
-  var api = new Linode();
+describe('api', function() {
+  var api;
 
-  return api.then(function() {
-    assert.ok(api.api);
-    assert.ok(api.api.spec);
+  before(function() {
+    api = new Linode();
 
-    return api.api.spec().then(function(spec) {
-      assert.ok(spec);
+    return api.then(function() { });
+  });
 
-      assert.equal(spec.version, '3.3');
+  describe('api.spec', function() {
+    it('should return an API specification', function() {
+      assert.ok(api.api);
+      assert.ok(api.api.spec);
+
+      return api.api.spec().then(function(spec) {
+        assert.ok(spec);
+
+        assert.equal(spec.version, '3.3');
+      });
     });
   });
 });
