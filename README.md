@@ -1,8 +1,9 @@
 # Linodeius
 
-This is a Node.js client for the [Linode API](https://www.linode.com/api).
+This is a promise-based Node.js client for the
+[Linode API](https://www.linode.com/api).
 
-**This is a work in progress.**
+**NOTE:** This is a work in progress.
 
 ## Installation
 
@@ -37,6 +38,8 @@ that order of priority.
 
 * Add support for batch operations via the `api_action=batch` mode.
 
-## Copyright
+## License and Copyright
+
+Copyright (C) 2016 Scott Tadman <tadman@postageapp.com>
 
 Licensed under the MIT License. See [LICENSE](LICENSE.md) for details.
