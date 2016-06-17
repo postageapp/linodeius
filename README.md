@@ -16,8 +16,10 @@ For use in an application:
     const Linode = require('linodeius');
     const api = new Linode(api_key);
 
-    api.linode.list().then(function(linodes) {
-      // Use linodes data.
+    api.then(function() {
+      api.linode.list().then(function(linodes) {
+        // Use linodes data.
+      });
     });
 
 ## Configuration
