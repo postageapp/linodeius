@@ -1,6 +1,6 @@
 {
   "name": "linodeius",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Linode API Client",
   "main": "lib/linodeius.js",
   "scripts": {
@@ -30,6 +30,7 @@
     "bluebird": "^3.4.0",
     "commander": "^2.9.0",
     "merge": "^1.2.0",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "underscore": "^1.8.3"
   }
 }

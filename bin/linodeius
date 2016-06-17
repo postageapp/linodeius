@@ -11,18 +11,6 @@ const program = require('commander');
 
 const version = require('../package.json').version;
 
-// == Support Functions =====================================================
-
-function apiKey(keyPath) {
-  var apiKey;
-
-  if (keyPath) {
-    return fs.readFileSync(keyPath).toString();
-  }
-
-  return process.env['LINODE_API_KEY'];
-}
-
 // == Main ==================================================================
 
 program
@@ -30,12 +18,36 @@ program
   .option('-k --api-key <api_key>', 'Path to Linode API key');
 
 program
+  .command('key')
+  .description('Show API key being used')
+  .action(function() {
+    var api = new Linode(program.apiKey);
+
+    console.log(api.apiKey);
+  });
+
+program
+  .command('api_version')
+  .description('Show API version being used')
+  .action(function() {
+    var api = new Linode(program.apiKey);
+
+    api.then(function() {
+      console.log('API Version: ' + api.version);
+    });
+  })
+
+program
   .command('list')
   .description('Lists available commands')
   .action(function() {
-    Linode.methods().forEach(function(method) {
-      console.log(method);
-    })
+    var api = new Linode(program.apiKey);
+
+    api.then(function() {
+      Object.keys(api.methods).sort().forEach(function(method) {
+        console.log(method);
+      });
+    });
   });
 
 program
@@ -43,12 +55,12 @@ program
   .description('Execute arbitrary Linode API call')
   .option('-h, --help', 'Help about this command')
   .action(function(cmd) {
-    var linode = new Linode(apiKey(program.apiKey));
+    var api = new Linode(program.apiKey);
 
-    // FIX: Warn on invalid command, linode[cmd] does not exist
-    linode[cmd]().then(function(response) {
+    // FIX: Warn on invalid command, cmd does not exist
+    api.call(cmd).then(function(response) {
       console.log('Response:');
-      console.log(response);
+      console.log(JSON.stringify(response, null, 2));
     }).catch(function(err) {
       console.log('Error:');
       console.log(err);
