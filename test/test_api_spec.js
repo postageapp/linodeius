@@ -10,7 +10,7 @@ it('should return an API specification', function() {
     return api.api.spec().then(function(spec) {
       assert.ok(spec);
 
-      assert.equal(spec.version, '3.3')
+      assert.equal(spec.version, '3.3');
     });
   });
 });
