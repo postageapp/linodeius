@@ -39,4 +39,4 @@ that order of priority.
 
 ## Copyright
 
-Licensed under the MIT License. See [LICENSE](LICENSE) for details.
+Licensed under the MIT License. See [LICENSE](LICENSE.md) for details.
