@@ -12,10 +12,16 @@ As with any NPM package:
 
 For use in an application:
 
-     const Linode = require('linodeius');
-     const linode = new Linode(api_key);
+    const Linode = require('linodeius');
+    const api = new Linode(api_key);
 
-     linode.instance.list()
+    api.linode.list().then(function(linodes) {
+      // Use linodes data.
+    });
+
+## TODO
+
+* Add support for batch operations via the `api_action=batch` mode.
 
 ## Copyright
 
