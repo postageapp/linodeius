@@ -1,9 +1,9 @@
 # Linodeius
 
-This is a promise-based Node.js client for the
+This is a promise-based [Node.js](https://nodejs.org/en/) client for the
 [Linode API](https://www.linode.com/api).
 
-**NOTE:** This is a work in progress.
+**NOTE:** This is a work in progress. The interface is subject to change.
 
 ## Installation
 
@@ -42,6 +42,7 @@ that order of priority.
 
 ## License and Copyright
 
-Copyright (C) 2016 Scott Tadman <tadman@postageapp.com>
+Copyright (C) 2016 Scott Tadman <tadman@postageapp.com>,
+[PostageApp](http://postageapp.com/).
 
-Licensed under the MIT License. See [LICENSE](LICENSE.md) for details.
+Licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
