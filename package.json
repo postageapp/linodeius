@@ -1,6 +1,6 @@
 {
   "name": "linodeius",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Linode API Client",
   "main": "lib/linodeius.js",
   "scripts": {
@@ -21,16 +21,16 @@
   },
   "homepage": "https://github.com/postageapp/linodeius#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "cheerio": "^0.20.0",
+    "chai": "^4.1.1",
+    "cheerio": "^1.0.0-rc.2",
     "gulp": "^3.9.1",
-    "mocha": "^2.5.3"
+    "mocha": "^3.5.0"
   },
   "dependencies": {
-    "bluebird": "^3.4.0",
-    "commander": "^2.9.0",
+    "bluebird": "^3.5.0",
+    "commander": "^2.11.0",
+    "lodash": "^4.17.4",
     "merge": "^1.2.0",
-    "request": "^2.72.0",
-    "underscore": "^1.8.3"
+    "request": "^2.81.0"
   }
 }
