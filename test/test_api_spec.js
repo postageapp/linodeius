@@ -1,13 +1,7 @@
 require('./harness');
 
 describe('api', function() {
-  var api;
-
-  before(function() {
-    api = new Linode();
-
-    return api.then(function() { });
-  });
+  var api = new Linode();
 
   describe('api.spec', function() {
     it('should return an API specification', function() {

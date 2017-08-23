@@ -1,0 +1,2250 @@
+{
+  "version": 3.3,
+  "methods": {
+    "avail.kernels": {
+      "description": "List available kernels.",
+      "throws": "",
+      "parameters": {
+        "isXen": {
+          "required": false,
+          "description": "Show or hide Xen compatible kernels",
+          "type": "boolean",
+          "name": "isXen"
+        },
+        "isKVM": {
+          "required": false,
+          "description": "Show or hide KVM compatible kernels",
+          "type": "boolean",
+          "name": "isKVM"
+        }
+      }
+    },
+    "nodebalancer.create": {
+      "description": "",
+      "throws": "NOACCESS,CCFAILED,VALIDATION",
+      "parameters": {
+        "Label": {
+          "required": false,
+          "description": "This NodeBalancer's label",
+          "type": "string",
+          "default": "deflabel9000cakemix",
+          "name": "Label"
+        },
+        "ClientConnThrottle": {
+          "required": false,
+          "description": "To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.",
+          "type": "numeric",
+          "default": 0,
+          "name": "ClientConnThrottle"
+        },
+        "DatacenterID": {
+          "required": true,
+          "description": "The DatacenterID from avail.datacenters() where you wish to place this new NodeBalancer",
+          "type": "numeric",
+          "name": "DatacenterID"
+        }
+      }
+    },
+    "stackscript.delete": {
+      "description": "",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "StackScriptID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "StackScriptID"
+        }
+      }
+    },
+    "nodebalancer.list": {
+      "description": "Returns a list of NodeBalancers this user has access or delete to, including their properties",
+      "throws": "",
+      "parameters": {
+        "NodeBalancerID": {
+          "required": false,
+          "description": "Limits the list to the specified NodeBalancerID",
+          "type": "numeric",
+          "name": "NodeBalancerID"
+        }
+      }
+    },
+    "image.list": {
+      "description": "Lists available gold-master images",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "ImageID": {
+          "required": false,
+          "description": "Request information for a specific gold-master image",
+          "type": "numeric",
+          "name": "ImageID"
+        },
+        "pending": {
+          "required": false,
+          "description": "Show images currently being created.",
+          "type": "numeric",
+          "name": "pending"
+        }
+      }
+    },
+    "linode.resize": {
+      "description": "Resizes a Linode from one plan to another.  Immediately shuts the Linode down, charges/credits the account, and issue a migration to another host server.",
+      "throws": "NOTFOUND,CCFAILED,VALIDATION",
+      "parameters": {
+        "PlanID": {
+          "required": true,
+          "description": "The desired PlanID available from avail.LinodePlans()",
+          "type": "numeric",
+          "name": "PlanID"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "linode.reboot": {
+      "description": "Issues a shutdown, and then boot job for a given LinodeID.",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "ConfigID": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "avail.linodeplans": {
+      "description": "Returns a structure of Linode PlanIDs containing the Plan label and the availability in each Datacenter.",
+      "throws": "",
+      "parameters": {
+        "PlanID": {
+          "required": false,
+          "description": "Limits the list to the specified PlanID",
+          "type": "numeric",
+          "name": "PlanID"
+        }
+      }
+    },
+    "avail.distributions": {
+      "description": "Returns a list of available Linux Distributions.",
+      "throws": "",
+      "parameters": {
+        "DistributionID": {
+          "required": false,
+          "description": "Limits the results to the specified DistributionID",
+          "type": "numeric",
+          "name": "DistributionID"
+        }
+      }
+    },
+    "volume.clone": {
+      "description": "Clones an existing block storage volume.",
+      "throws": "NOACCESS, VALIDATION",
+      "parameters": {
+        "Label": {
+          "required": true,
+          "description": "A unique name for the new volume",
+          "type": "string",
+          "name": "Label"
+        },
+        "CloneFromID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "CloneFromID"
+        }
+      }
+    },
+    "linode.disk.duplicate": {
+      "description": "Performs a bit-for-bit copy of a disk image.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "DiskID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DiskID"
+        }
+      }
+    },
+    "nodebalancer.node.list": {
+      "description": "Returns a list of Nodes associated with a NodeBalancer Config",
+      "throws": "",
+      "parameters": {
+        "ConfigID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "NodeID": {
+          "required": false,
+          "description": "Limits the list to the specified NodeID",
+          "type": "numeric",
+          "name": "NodeID"
+        }
+      }
+    },
+    "linode.disk.delete": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "DiskID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DiskID"
+        }
+      }
+    },
+    "nodebalancer.config.delete": {
+      "description": "Deletes a NodeBalancer's Config",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "NodeBalancerID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "NodeBalancerID"
+        },
+        "ConfigID": {
+          "required": true,
+          "description": "The ConfigID to delete",
+          "type": "numeric",
+          "name": "ConfigID"
+        }
+      }
+    },
+    "linode.list": {
+      "description": "Returns a list of all Linodes user has access or delete to, including some properties.  Status values are -1: Being Created, 0: Brand New, 1: Running, and 2: Powered Off.",
+      "throws": "",
+      "parameters": {
+        "LinodeID": {
+          "required": false,
+          "description": "Limits the list to the specified LinodeID",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "linode.config.create": {
+      "description": "Creates a Linode Configuration Profile.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "RootDeviceNum": {
+          "required": false,
+          "description": "Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.",
+          "type": "numeric",
+          "default": 1,
+          "name": "RootDeviceNum"
+        },
+        "RootDeviceCustom": {
+          "required": false,
+          "description": "A custom root device setting.",
+          "type": "string",
+          "default": "",
+          "name": "RootDeviceCustom"
+        },
+        "RunLevel": {
+          "required": false,
+          "description": "One of 'default', 'single', 'binbash' ",
+          "type": "string",
+          "default": "default",
+          "name": "RunLevel"
+        },
+        "helper_xen": {
+          "required": false,
+          "description": "Deprecated - use helper_distro.",
+          "type": "boolean",
+          "default": true,
+          "name": "helper_xen"
+        },
+        "virt_mode": {
+          "required": false,
+          "description": "Controls the virtualization mode. One of 'paravirt', 'fullvirt' ",
+          "type": "string",
+          "default": "paravirt",
+          "name": "virt_mode"
+        },
+        "DiskList": {
+          "required": true,
+          "description": "A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.",
+          "type": "string",
+          "name": "DiskList"
+        },
+        "KernelID": {
+          "required": true,
+          "description": "The KernelID for this profile.  Found in avail.kernels()",
+          "type": "numeric",
+          "name": "KernelID"
+        },
+        "helper_network": {
+          "required": false,
+          "description": "Automatically creates network configuration files for your distro and places them into your filesystem.",
+          "type": "boolean",
+          "default": true,
+          "name": "helper_network"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Comments": {
+          "required": false,
+          "description": "Comments you wish to save along with this profile",
+          "type": "string",
+          "default": "",
+          "name": "Comments"
+        },
+        "RootDeviceRO": {
+          "required": false,
+          "description": "Enables the 'ro' kernel flag.  Modern distros want this. ",
+          "type": "boolean",
+          "default": true,
+          "name": "RootDeviceRO"
+        },
+        "devtmpfs_automount": {
+          "required": false,
+          "description": "Controls if pv_ops kernels should automount devtmpfs at boot. ",
+          "type": "boolean",
+          "default": true,
+          "name": "devtmpfs_automount"
+        },
+        "helper_disableUpdateDB": {
+          "required": false,
+          "description": "Enable the disableUpdateDB filesystem helper",
+          "type": "boolean",
+          "default": true,
+          "name": "helper_disableUpdateDB"
+        },
+        "helper_depmod": {
+          "required": false,
+          "description": "Creates an empty modprobe file for the kernel you're booting. ",
+          "type": "boolean",
+          "default": true,
+          "name": "helper_depmod"
+        },
+        "RAMLimit": {
+          "required": false,
+          "description": "RAMLimit in MB.  0 for max.",
+          "type": "numeric",
+          "default": 0,
+          "name": "RAMLimit"
+        },
+        "Label": {
+          "required": true,
+          "description": "The Label for this profile",
+          "type": "string",
+          "name": "Label"
+        },
+        "helper_distro": {
+          "required": false,
+          "description": "Enable the Distro filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.",
+          "type": "boolean",
+          "default": true,
+          "name": "helper_distro"
+        }
+      }
+    },
+    "linode.disk.resize": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "DiskID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DiskID"
+        },
+        "size": {
+          "required": true,
+          "description": "The requested new size of this Disk in MB",
+          "type": "numeric",
+          "name": "size"
+        }
+      }
+    },
+    "domain.delete": {
+      "description": "",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "DomainID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DomainID"
+        }
+      }
+    },
+    "domain.update": {
+      "description": "Update a domain record.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "Domain": {
+          "required": false,
+          "description": "The zone's name",
+          "type": "string",
+          "name": "Domain"
+        },
+        "TTL_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "TTL_sec"
+        },
+        "axfr_ips": {
+          "required": false,
+          "description": "IP addresses allowed to AXFR the entire zone, semicolon separated",
+          "type": "string",
+          "name": "axfr_ips"
+        },
+        "DomainID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DomainID"
+        },
+        "SOA_Email": {
+          "required": false,
+          "description": "Required when type=master",
+          "type": "string",
+          "name": "SOA_Email"
+        },
+        "Expire_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "Expire_sec"
+        },
+        "Retry_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "Retry_sec"
+        },
+        "status": {
+          "required": false,
+          "description": "0, 1, or 2 (disabled, active, edit mode)",
+          "type": "numeric",
+          "name": "status"
+        },
+        "Description": {
+          "required": false,
+          "description": "Currently undisplayed.",
+          "type": "string",
+          "name": "Description"
+        },
+        "lpm_displayGroup": {
+          "required": false,
+          "description": "Display group in the Domain list inside the Linode DNS Manager",
+          "type": "string",
+          "name": "lpm_displayGroup"
+        },
+        "Refresh_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "Refresh_sec"
+        },
+        "Type": {
+          "required": false,
+          "description": "master or slave",
+          "type": "string",
+          "name": "Type"
+        },
+        "master_ips": {
+          "required": false,
+          "description": "When type=slave, the zone's master DNS servers list, semicolon separated ",
+          "type": "string",
+          "name": "master_ips"
+        }
+      }
+    },
+    "nodebalancer.node.create": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "Label": {
+          "required": true,
+          "description": "This backend Node's label",
+          "type": "string",
+          "name": "Label"
+        },
+        "ConfigID": {
+          "required": true,
+          "description": "The parent ConfigID to attach this Node to",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "Weight": {
+          "required": false,
+          "description": "Load balancing weight, 1-255. Higher means more connections.",
+          "type": "numeric",
+          "default": 100,
+          "name": "Weight"
+        },
+        "Address": {
+          "required": true,
+          "description": "The address:port combination used to communicate with this Node",
+          "type": "string",
+          "name": "Address"
+        },
+        "Mode": {
+          "required": false,
+          "description": "The connections mode for this node.  One of 'accept', 'reject', or 'drain'",
+          "type": "string",
+          "default": "accept",
+          "name": "Mode"
+        }
+      }
+    },
+    "avail.nodebalancers": {
+      "description": "Returns NodeBalancer pricing information.",
+      "throws": "",
+      "parameters": {}
+    },
+    "linode.disk.update": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "isReadOnly": {
+          "required": false,
+          "description": "Enable forced read-only for this Disk",
+          "type": "boolean",
+          "name": "isReadOnly"
+        },
+        "LinodeID": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Label": {
+          "required": false,
+          "description": "The display label for this Disk",
+          "type": "string",
+          "name": "Label"
+        },
+        "DiskID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DiskID"
+        }
+      }
+    },
+    "stackscript.list": {
+      "description": "Lists StackScripts you have access to.",
+      "throws": "STACKSCRIPTLIMIT",
+      "parameters": {
+        "StackScriptID": {
+          "required": false,
+          "description": "Limits the list to the specified StackScriptID",
+          "type": "numeric",
+          "name": "StackScriptID"
+        }
+      }
+    },
+    "nodebalancer.config.list": {
+      "description": "Returns a list of NodeBalancers this user has access or delete to, including their properties",
+      "throws": "",
+      "parameters": {
+        "NodeBalancerID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "NodeBalancerID"
+        },
+        "ConfigID": {
+          "required": false,
+          "description": "Limits the list to the specified ConfigID",
+          "type": "numeric",
+          "name": "ConfigID"
+        }
+      }
+    },
+    "domain.list": {
+      "description": "Lists domains you have access to.",
+      "throws": "",
+      "parameters": {
+        "DomainID": {
+          "required": false,
+          "description": "Limits the list to the specified DomainID",
+          "type": "numeric",
+          "name": "DomainID"
+        }
+      }
+    },
+    "domain.resource.delete": {
+      "description": "",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "DomainID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DomainID"
+        },
+        "ResourceID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ResourceID"
+        }
+      }
+    },
+    "linode.config.list": {
+      "description": "Lists a Linode's Configuration Profiles.",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "ConfigID": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "image.delete": {
+      "description": "Deletes a gold-master image",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "ImageID": {
+          "required": true,
+          "description": "The ID of the gold-master image to delete",
+          "type": "numeric",
+          "name": "ImageID"
+        }
+      }
+    },
+    "linode.ip.swap": {
+      "description": "Exchanges Public IP addresses between two Linodes within a Datacenter.  The destination of the IP Address can be designated by either the toLinodeID or withIPAddressID parameter.  Returns the resulting relationship of the Linode and IP Address parameters.  When performing a one directional swap, the source is represented by the first of the two resultant array members.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "withIPAddressID": {
+          "required": false,
+          "description": "The IP Address ID to swap",
+          "type": "numeric",
+          "name": "withIPAddressID"
+        },
+        "IPAddressID": {
+          "required": true,
+          "description": "The IPAddressID of an IP Address to transfer or swap",
+          "type": "numeric",
+          "name": "IPAddressID"
+        },
+        "toLinodeID": {
+          "required": false,
+          "description": "The LinodeID of the Linode where IPAddressID will be transfered",
+          "type": "numeric",
+          "name": "toLinodeID"
+        }
+      }
+    },
+    "linode.clone": {
+      "description": "Creates a new Linode, assigns you full privileges, and then clones the specified LinodeID to the new Linode. There is a limit of 5 active clone operations per source Linode.  It is recommended that the source Linode be powered down during the clone.",
+      "throws": "NOACCESS,NOTFOUND,CCFAILED,VALIDATION,LINODELIMITER,ACCOUNTLIMIT",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "The LinodeID that you want cloned",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "PaymentTerm": {
+          "required": false,
+          "description": "Subscription term in months for prepaid customers.  One of: 1, 12, or 24",
+          "type": "numeric",
+          "name": "PaymentTerm"
+        },
+        "DatacenterID": {
+          "required": true,
+          "description": "The DatacenterID from avail.datacenters() where you wish to place this new Linode",
+          "type": "numeric",
+          "name": "DatacenterID"
+        },
+        "PlanID": {
+          "required": true,
+          "description": "The desired PlanID available from avail.LinodePlans()",
+          "type": "numeric",
+          "name": "PlanID"
+        }
+      }
+    },
+    "linode.update": {
+      "description": "Updates a Linode's properties.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "Alert_diskio_enabled": {
+          "required": false,
+          "description": "Enable the disk IO email alert",
+          "type": "boolean",
+          "name": "Alert_diskio_enabled"
+        },
+        "Alert_bwquota_enabled": {
+          "required": false,
+          "description": "Enable the bw quote email alert",
+          "type": "boolean",
+          "name": "Alert_bwquota_enabled"
+        },
+        "Alert_bwout_enabled": {
+          "required": false,
+          "description": "Enable the outgoing bandwidth email alert",
+          "type": "boolean",
+          "name": "Alert_bwout_enabled"
+        },
+        "Alert_cpu_threshold": {
+          "required": false,
+          "description": "CPU Alert threshold, percentage 0-800",
+          "type": "numeric",
+          "name": "Alert_cpu_threshold"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "watchdog": {
+          "required": false,
+          "description": "Enable the Lassie shutdown watchdog",
+          "type": "boolean",
+          "name": "watchdog"
+        },
+        "Alert_bwout_threshold": {
+          "required": false,
+          "description": "Mb/sec",
+          "type": "numeric",
+          "name": "Alert_bwout_threshold"
+        },
+        "backupWindow": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "backupWindow"
+        },
+        "ms_ssh_ip": {
+          "required": false,
+          "description": "",
+          "type": "string",
+          "name": "ms_ssh_ip"
+        },
+        "Alert_bwin_enabled": {
+          "required": false,
+          "description": "Enable the incoming bandwidth email alert",
+          "type": "boolean",
+          "name": "Alert_bwin_enabled"
+        },
+        "ms_ssh_disabled": {
+          "required": false,
+          "description": "",
+          "type": "boolean",
+          "name": "ms_ssh_disabled"
+        },
+        "ms_ssh_port": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "ms_ssh_port"
+        },
+        "Alert_bwquota_threshold": {
+          "required": false,
+          "description": "Percentage of monthly bw quota",
+          "type": "numeric",
+          "name": "Alert_bwquota_threshold"
+        },
+        "backupWeeklyDay": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "backupWeeklyDay"
+        },
+        "Label": {
+          "required": false,
+          "description": "This Linode's label",
+          "type": "string",
+          "name": "Label"
+        },
+        "lpm_displayGroup": {
+          "required": false,
+          "description": "Display group in the Linode list inside the Linode Manager",
+          "type": "string",
+          "name": "lpm_displayGroup"
+        },
+        "Alert_diskio_threshold": {
+          "required": false,
+          "description": "IO ops/sec",
+          "type": "numeric",
+          "name": "Alert_diskio_threshold"
+        },
+        "Alert_cpu_enabled": {
+          "required": false,
+          "description": "Enable the cpu usage email alert",
+          "type": "boolean",
+          "name": "Alert_cpu_enabled"
+        },
+        "Alert_bwin_threshold": {
+          "required": false,
+          "description": "Mb/sec",
+          "type": "numeric",
+          "name": "Alert_bwin_threshold"
+        },
+        "ms_ssh_user": {
+          "required": false,
+          "description": "",
+          "type": "string",
+          "name": "ms_ssh_user"
+        }
+      }
+    },
+    "account.paybalance": {
+      "description": "Pays current balance on file, returning it in the response.",
+      "throws": "CCEXPIRED,CCFAILED,NOACCESS,PAYMENTLIMITER,VALIDATION",
+      "parameters": {}
+    },
+    "nodebalancer.config.update": {
+      "description": "Updates a Config's properties",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "check_passive": {
+          "required": false,
+          "description": "Enable passive checks based on observing communication with back-end nodes.",
+          "type": "boolean",
+          "name": "check_passive"
+        },
+        "Port": {
+          "required": false,
+          "description": "Port to bind to on the public interfaces. 1-65534",
+          "type": "numeric",
+          "name": "Port"
+        },
+        "check_body": {
+          "required": false,
+          "description": "When check=http, a regex to match within the first 16,384 bytes of the response body",
+          "type": "string",
+          "name": "check_body"
+        },
+        "ssl_cert": {
+          "required": false,
+          "description": "SSL certificate served by the NodeBalancer when the protocol is 'https'",
+          "type": "string",
+          "name": "ssl_cert"
+        },
+        "Algorithm": {
+          "required": false,
+          "description": "Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'",
+          "type": "string",
+          "name": "Algorithm"
+        },
+        "Protocol": {
+          "required": false,
+          "description": "Either 'tcp', 'http', or 'https'",
+          "type": "string",
+          "name": "Protocol"
+        },
+        "cipher_suite": {
+          "required": false,
+          "description": "SSL cipher suite to enforce. One of 'recommended', 'legacy'",
+          "type": "string",
+          "name": "cipher_suite"
+        },
+        "ConfigID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "check_interval": {
+          "required": false,
+          "description": "Seconds between health check probes.  2-3600",
+          "type": "numeric",
+          "name": "check_interval"
+        },
+        "ssl_key": {
+          "required": false,
+          "description": "Unpassphrased private key for the SSL certificate when protocol is 'https'",
+          "type": "string",
+          "name": "ssl_key"
+        },
+        "Stickiness": {
+          "required": false,
+          "description": "Session persistence.  One of 'none', 'table', 'http_cookie'",
+          "type": "string",
+          "name": "Stickiness"
+        },
+        "check_attempts": {
+          "required": false,
+          "description": "Number of failed probes before taking a node out of rotation. 1-30",
+          "type": "string",
+          "name": "check_attempts"
+        },
+        "check": {
+          "required": false,
+          "description": "Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'",
+          "type": "string",
+          "name": "check"
+        },
+        "check_path": {
+          "required": false,
+          "description": "When check=http, the path to request",
+          "type": "string",
+          "name": "check_path"
+        },
+        "check_timeout": {
+          "required": false,
+          "description": "Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.",
+          "type": "string",
+          "name": "check_timeout"
+        }
+      }
+    },
+    "linode.disk.list": {
+      "description": "Status values are 1: Ready and 2: Being Deleted.",
+      "throws": "",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "DiskID": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "DiskID"
+        }
+      }
+    },
+    "stackscript.update": {
+      "description": "Update a StackScript.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "rev_note": {
+          "required": false,
+          "description": "",
+          "type": "string",
+          "name": "rev_note"
+        },
+        "script": {
+          "required": false,
+          "description": "The actual script",
+          "type": "string",
+          "name": "script"
+        },
+        "Description": {
+          "required": false,
+          "description": "",
+          "type": "string",
+          "name": "Description"
+        },
+        "StackScriptID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "StackScriptID"
+        },
+        "isPublic": {
+          "required": false,
+          "description": "Whether this StackScript is published in the Library, for everyone to use",
+          "type": "boolean",
+          "name": "isPublic"
+        },
+        "Label": {
+          "required": false,
+          "description": "The Label for this StackScript",
+          "type": "string",
+          "name": "Label"
+        },
+        "DistributionIDList": {
+          "required": false,
+          "description": "Comma delimited list of DistributionIDs that this script works on ",
+          "type": "string",
+          "name": "DistributionIDList"
+        }
+      }
+    },
+    "linode.boot": {
+      "description": "Issues a boot job for the provided ConfigID.  If no ConfigID is provided boots the last used configuration profile, or the first configuration profile if this Linode has never been booted.",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "ConfigID": {
+          "required": false,
+          "description": "The ConfigID to boot, available from linode.config.list().",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "linode.ip.addpublic": {
+      "description": "Assigns a Public IP to a Linode.  Returns the IPAddressID and IPAddress that was added.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "The LinodeID of the Linode that will be assigned an additional public IP address",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "linode.job.list": {
+      "description": "",
+      "throws": "",
+      "parameters": {
+        "pendingOnly": {
+          "required": false,
+          "description": "",
+          "type": "boolean",
+          "name": "pendingOnly"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "JobID": {
+          "required": false,
+          "description": "Limits the list to the specified JobID",
+          "type": "numeric",
+          "name": "JobID"
+        }
+      }
+    },
+    "linode.ip.list": {
+      "description": "Returns the IP addresses of all Linodes you have access to.",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "LinodeID": {
+          "required": false,
+          "description": "If specified, limits the result to this LinodeID",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "IPAddressID": {
+          "required": false,
+          "description": "If specified, limits the result to this IPAddressID",
+          "type": "numeric",
+          "name": "IPAddressID"
+        }
+      }
+    },
+    "linode.disk.createfromdistribution": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Label": {
+          "required": true,
+          "description": "The label of this new disk image",
+          "type": "string",
+          "name": "Label"
+        },
+        "rootPass": {
+          "required": true,
+          "description": "The root (or core) user's password",
+          "type": "string",
+          "name": "rootPass"
+        },
+        "rootSSHKey": {
+          "required": false,
+          "description": "Optionally sets this string into /root/.ssh/authorized_keys (or /home/core/.ssh/authorized_keys) upon distribution configuration.",
+          "type": "string",
+          "name": "rootSSHKey"
+        },
+        "DistributionID": {
+          "required": true,
+          "description": "The DistributionID to create this disk from.  Found in avail.distributions()",
+          "type": "numeric",
+          "name": "DistributionID"
+        },
+        "Size": {
+          "required": true,
+          "description": "Size of this disk image in MB",
+          "type": "numeric",
+          "name": "Size"
+        }
+      }
+    },
+    "linode.disk.create": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "isReadOnly": {
+          "required": false,
+          "description": "Enable forced read-only for this Disk",
+          "type": "boolean",
+          "default": false,
+          "name": "isReadOnly"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Label": {
+          "required": true,
+          "description": "The display label for this Disk",
+          "type": "string",
+          "name": "Label"
+        },
+        "Type": {
+          "required": true,
+          "description": "The formatted type of this disk.  Valid types are: ext3, ext4, swap, raw",
+          "type": "string",
+          "name": "Type"
+        },
+        "Size": {
+          "required": true,
+          "description": "The size in MB of this Disk.",
+          "type": "numeric",
+          "name": "Size"
+        }
+      }
+    },
+    "linode.config.update": {
+      "description": "Updates a Linode Configuration Profile.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "RootDeviceNum": {
+          "required": false,
+          "description": "Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.",
+          "type": "numeric",
+          "name": "RootDeviceNum"
+        },
+        "RootDeviceCustom": {
+          "required": false,
+          "description": "A custom root device setting.",
+          "type": "string",
+          "name": "RootDeviceCustom"
+        },
+        "RunLevel": {
+          "required": false,
+          "description": "One of 'default', 'single', 'binbash' ",
+          "type": "string",
+          "name": "RunLevel"
+        },
+        "helper_xen": {
+          "required": false,
+          "description": "Deprecated - use helper_distro.",
+          "type": "boolean",
+          "name": "helper_xen"
+        },
+        "virt_mode": {
+          "required": false,
+          "description": "Controls the virtualization mode. One of 'paravirt', 'fullvirt' ",
+          "type": "string",
+          "name": "virt_mode"
+        },
+        "DiskList": {
+          "required": false,
+          "description": "A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.",
+          "type": "string",
+          "name": "DiskList"
+        },
+        "KernelID": {
+          "required": false,
+          "description": "The KernelID for this profile.  Found in avail.kernels()",
+          "type": "numeric",
+          "name": "KernelID"
+        },
+        "helper_network": {
+          "required": false,
+          "description": "Automatically creates network configuration files for your distro and places them into your filesystem.",
+          "type": "boolean",
+          "name": "helper_network"
+        },
+        "LinodeID": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Comments": {
+          "required": false,
+          "description": "Comments you wish to save along with this profile",
+          "type": "string",
+          "name": "Comments"
+        },
+        "ConfigID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "RootDeviceRO": {
+          "required": false,
+          "description": "Enables the 'ro' kernel flag.  Modern distros want this. ",
+          "type": "boolean",
+          "name": "RootDeviceRO"
+        },
+        "devtmpfs_automount": {
+          "required": false,
+          "description": "Controls if pv_ops kernels should automount devtmpfs at boot. ",
+          "type": "boolean",
+          "name": "devtmpfs_automount"
+        },
+        "helper_disableUpdateDB": {
+          "required": false,
+          "description": "Enable the disableUpdateDB filesystem helper",
+          "type": "boolean",
+          "name": "helper_disableUpdateDB"
+        },
+        "helper_depmod": {
+          "required": false,
+          "description": "Creates an empty modprobe file for the kernel you're booting. ",
+          "type": "boolean",
+          "name": "helper_depmod"
+        },
+        "RAMLimit": {
+          "required": false,
+          "description": "RAMLimit in MB.  0 for max.",
+          "type": "numeric",
+          "name": "RAMLimit"
+        },
+        "Label": {
+          "required": false,
+          "description": "The Label for this profile",
+          "type": "string",
+          "name": "Label"
+        },
+        "helper_distro": {
+          "required": false,
+          "description": "Enable the Distro filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.",
+          "type": "boolean",
+          "name": "helper_distro"
+        }
+      }
+    },
+    "volume.delete": {
+      "description": "Deletes a block storage volume",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "VolumeID": {
+          "required": true,
+          "description": "The VolumeID to delete",
+          "type": "numeric",
+          "name": "VolumeID"
+        }
+      }
+    },
+    "linode.config.delete": {
+      "description": "Deletes a Linode Configuration Profile.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "ConfigID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ConfigID"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "linode.webconsoletoken": {
+      "description": "Generates a console token starting a web console LISH session for the requesting IP",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "linode.mutate": {
+      "description": "Upgrades a Linode to its next generation.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "test.echo": {
+      "description": "Echos back parameters that were passed in.",
+      "throws": "",
+      "parameters": {}
+    },
+    "volume.update": {
+      "description": "Updates a volume's properties",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "Label": {
+          "required": false,
+          "description": "A unique name for the volume",
+          "type": "string",
+          "name": "Label"
+        },
+        "LinodeID": {
+          "required": false,
+          "description": "The Linode this volume is attached to",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "VolumeID": {
+          "required": true,
+          "description": "The volume to modify",
+          "type": "numeric",
+          "name": "VolumeID"
+        },
+        "Size": {
+          "required": false,
+          "description": "Sets the new size of the new volume in GiB; volumes can only be made larger",
+          "type": "numeric",
+          "name": "Size"
+        }
+      }
+    },
+    "domain.resource.create": {
+      "description": "Create a domain record.",
+      "throws": "NOACCESS,VALIDATION",
+      "parameters": {
+        "Target": {
+          "required": false,
+          "description": "When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.",
+          "type": "string",
+          "default": "",
+          "name": "Target"
+        },
+        "TTL_sec": {
+          "required": false,
+          "description": "TTL.  Leave as 0 to accept our default.",
+          "type": "numeric",
+          "default": 0,
+          "name": "TTL_sec"
+        },
+        "Port": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "default": 80,
+          "name": "Port"
+        },
+        "DomainID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DomainID"
+        },
+        "Protocol": {
+          "required": false,
+          "description": "The protocol to append to an SRV record.  Ignored on other record types.",
+          "type": "string",
+          "default": "",
+          "name": "Protocol"
+        },
+        "Priority": {
+          "required": false,
+          "description": "Priority for MX and SRV records, 0-65535",
+          "type": "numeric",
+          "default": 10,
+          "name": "Priority"
+        },
+        "Weight": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "default": 5,
+          "name": "Weight"
+        },
+        "Type": {
+          "required": true,
+          "description": "One of: NS, MX, A, AAAA, CNAME, TXT, or SRV",
+          "type": "string",
+          "name": "Type"
+        },
+        "Name": {
+          "required": false,
+          "description": "The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.",
+          "type": "string",
+          "default": "",
+          "name": "Name"
+        }
+      }
+    },
+    "linode.ip.setrdns": {
+      "description": "Sets the rDNS name of a Public IP.  Returns the IPAddressID and IPAddress that were updated.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "Hostname": {
+          "required": true,
+          "description": "The hostname to set the reverse DNS to",
+          "type": "string",
+          "name": "Hostname"
+        },
+        "IPAddressID": {
+          "required": true,
+          "description": "The IPAddressID of the address to update",
+          "type": "numeric",
+          "name": "IPAddressID"
+        }
+      }
+    },
+    "nodebalancer.node.delete": {
+      "description": "Deletes a Node from a NodeBalancer Config",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "NodeID": {
+          "required": true,
+          "description": "The NodeID to delete",
+          "type": "numeric",
+          "name": "NodeID"
+        }
+      }
+    },
+    "volume.list": {
+      "description": "Returns a list of block storage Volumes",
+      "throws": "",
+      "parameters": {
+        "VolumeID": {
+          "required": false,
+          "description": "Limits the list to the specified Volume",
+          "type": "numeric",
+          "name": "VolumeID"
+        }
+      }
+    },
+    "nodebalancer.delete": {
+      "description": "Immediately removes a NodeBalancer from your account and issues a pro-rated credit back to your account, if applicable.",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "NodeBalancerID": {
+          "required": true,
+          "description": "The NodeBalancerID to delete",
+          "type": "numeric",
+          "name": "NodeBalancerID"
+        }
+      }
+    },
+    "linode.kvmify": {
+      "description": "Changes a Linode's hypervisor from Xen to KVM.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "The LinodeID to migrate to KVM.",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "stackscript.create": {
+      "description": "Create a StackScript.",
+      "throws": "NOACCESS,VALIDATION,STACKSCRIPTLIMIT",
+      "parameters": {
+        "rev_note": {
+          "required": false,
+          "description": "",
+          "type": "string",
+          "default": "",
+          "name": "rev_note"
+        },
+        "isPublic": {
+          "required": false,
+          "description": "Whether this StackScript is published in the Library, for everyone to use",
+          "type": "boolean",
+          "default": false,
+          "name": "isPublic"
+        },
+        "Label": {
+          "required": true,
+          "description": "The Label for this StackScript",
+          "type": "string",
+          "name": "Label"
+        },
+        "script": {
+          "required": true,
+          "description": "The actual script",
+          "type": "string",
+          "name": "script"
+        },
+        "Description": {
+          "required": false,
+          "description": "",
+          "type": "string",
+          "default": "",
+          "name": "Description"
+        },
+        "DistributionIDList": {
+          "required": true,
+          "description": "Comma delimited list of DistributionIDs that this script works on ",
+          "type": "string",
+          "name": "DistributionIDList"
+        }
+      }
+    },
+    "linode.create": {
+      "description": "Creates a Linode and assigns you full privileges. There is a 250-linodes-per-hour limiter.",
+      "throws": "NOACCESS,CCFAILED,VALIDATION,LINODELIMITER,ACCOUNTLIMIT",
+      "parameters": {
+        "PlanID": {
+          "required": true,
+          "description": "The desired PlanID available from avail.LinodePlans()",
+          "type": "numeric",
+          "name": "PlanID"
+        },
+        "PaymentTerm": {
+          "required": false,
+          "description": "Subscription term in months for prepaid customers.  One of: 1, 12, or 24",
+          "type": "numeric",
+          "default": 1,
+          "name": "PaymentTerm"
+        },
+        "DatacenterID": {
+          "required": true,
+          "description": "The DatacenterID from avail.datacenters() where you wish to place this new Linode",
+          "type": "numeric",
+          "name": "DatacenterID"
+        }
+      }
+    },
+    "account.info": {
+      "description": "Shows information about your account such as the date your account was opened as well as your network utilization for the current month in gigabytes.",
+      "throws": "",
+      "parameters": {}
+    },
+    "domain.resource.list": {
+      "description": "",
+      "throws": "",
+      "parameters": {
+        "DomainID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "DomainID"
+        },
+        "ResourceID": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "ResourceID"
+        }
+      }
+    },
+    "nodebalancer.config.create": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "check_passive": {
+          "required": false,
+          "description": "Enable passive checks based on observing communication with back-end nodes.",
+          "type": "boolean",
+          "default": 1,
+          "name": "check_passive"
+        },
+        "Port": {
+          "required": false,
+          "description": "Port to bind to on the public interfaces. 1-65534",
+          "type": "numeric",
+          "default": 80,
+          "name": "Port"
+        },
+        "check_body": {
+          "required": false,
+          "description": "When check=http, a regex to match within the first 16,384 bytes of the response body",
+          "type": "string",
+          "default": "",
+          "name": "check_body"
+        },
+        "ssl_cert": {
+          "required": false,
+          "description": "SSL certificate served by the NodeBalancer when the protocol is 'https'",
+          "type": "string",
+          "default": "",
+          "name": "ssl_cert"
+        },
+        "Algorithm": {
+          "required": false,
+          "description": "Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'",
+          "type": "string",
+          "default": "roundrobin",
+          "name": "Algorithm"
+        },
+        "Protocol": {
+          "required": false,
+          "description": "Either 'tcp', 'http', or 'https'",
+          "type": "string",
+          "default": "http",
+          "name": "Protocol"
+        },
+        "cipher_suite": {
+          "required": false,
+          "description": "SSL cipher suite to enforce. One of 'recommended', 'legacy'",
+          "type": "string",
+          "default": "recommended",
+          "name": "cipher_suite"
+        },
+        "NodeBalancerID": {
+          "required": true,
+          "description": "The parent NodeBalancer's ID",
+          "type": "numeric",
+          "name": "NodeBalancerID"
+        },
+        "check_interval": {
+          "required": false,
+          "description": "Seconds between health check probes.  2-3600",
+          "type": "numeric",
+          "default": 5,
+          "name": "check_interval"
+        },
+        "ssl_key": {
+          "required": false,
+          "description": "Unpassphrased private key for the SSL certificate when protocol is 'https'",
+          "type": "string",
+          "default": "",
+          "name": "ssl_key"
+        },
+        "Stickiness": {
+          "required": false,
+          "description": "Session persistence.  One of 'none', 'table', 'http_cookie'",
+          "type": "string",
+          "default": "table",
+          "name": "Stickiness"
+        },
+        "check_attempts": {
+          "required": false,
+          "description": "Number of failed probes before taking a node out of rotation. 1-30",
+          "type": "string",
+          "default": 2,
+          "name": "check_attempts"
+        },
+        "check": {
+          "required": false,
+          "description": "Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'",
+          "type": "string",
+          "default": "connection",
+          "name": "check"
+        },
+        "check_path": {
+          "required": false,
+          "description": "When check=http, the path to request",
+          "type": "string",
+          "default": "/",
+          "name": "check_path"
+        },
+        "check_timeout": {
+          "required": false,
+          "description": "Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.",
+          "type": "string",
+          "default": 3,
+          "name": "check_timeout"
+        }
+      }
+    },
+    "avail.stackscripts": {
+      "description": "Returns a list of available public StackScripts.",
+      "throws": "",
+      "parameters": {
+        "DistributionID": {
+          "required": false,
+          "description": "Limit the results to StackScripts that can be applied to this DistributionID",
+          "type": "numeric",
+          "name": "DistributionID"
+        },
+        "DistributionVendor": {
+          "required": false,
+          "description": "Debian, Ubuntu, Fedora, etc.",
+          "type": "string",
+          "name": "DistributionVendor"
+        },
+        "keywords": {
+          "required": false,
+          "description": "Search terms",
+          "type": "string",
+          "name": "keywords"
+        }
+      }
+    },
+    "linode.ip.addprivate": {
+      "description": "Assigns a Private IP to a Linode.  Returns the IPAddressID that was added.",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "linode.disk.createfromimage": {
+      "description": "Creates a new disk from a previously imagized disk.",
+      "throws": "",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "Specifies the Linode to deploy on to",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Label": {
+          "required": false,
+          "description": "The label of this new disk image",
+          "type": "string",
+          "name": "Label"
+        },
+        "rootPass": {
+          "required": false,
+          "description": "Optionally sets the root password at deployment time. If a password is not provided the existing root password of the frozen image will not be modified",
+          "type": "string",
+          "name": "rootPass"
+        },
+        "rootSSHKey": {
+          "required": false,
+          "description": "Optionally sets this string into /root/.ssh/authorized_keys upon image deployment",
+          "type": "string",
+          "name": "rootSSHKey"
+        },
+        "ImageID": {
+          "required": true,
+          "description": "The ID of the frozen image to deploy from",
+          "type": "numeric",
+          "name": "ImageID"
+        },
+        "size": {
+          "required": false,
+          "description": "The size of the disk image to creates. Defaults to the minimum size required for the requested image",
+          "type": "numeric",
+          "name": "size"
+        }
+      }
+    },
+    "linode.disk.imagize": {
+      "description": "Creates a gold-master image for future deployments",
+      "throws": "",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "Specifies the source Linode to create the image from",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Label": {
+          "required": false,
+          "description": "Sets the name of the image shown in the base image list, defaults to the source image label",
+          "type": "string",
+          "name": "Label"
+        },
+        "Description": {
+          "required": false,
+          "description": "An optional description of the created image",
+          "type": "string",
+          "name": "Description"
+        },
+        "DiskID": {
+          "required": true,
+          "description": "Specifies the source Disk to create the image from",
+          "type": "numeric",
+          "name": "DiskID"
+        }
+      }
+    },
+    "linode.shutdown": {
+      "description": "Issues a shutdown job for a given LinodeID.",
+      "throws": "NOTFOUND",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        }
+      }
+    },
+    "domain.create": {
+      "description": "Create a domain record.",
+      "throws": "NOACCESS,VALIDATION",
+      "parameters": {
+        "Domain": {
+          "required": true,
+          "description": "The zone's name",
+          "type": "string",
+          "name": "Domain"
+        },
+        "Retry_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "default": 0,
+          "name": "Retry_sec"
+        },
+        "status": {
+          "required": false,
+          "description": "0, 1, or 2 (disabled, active, edit mode)",
+          "type": "numeric",
+          "default": 1,
+          "name": "status"
+        },
+        "TTL_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "default": 0,
+          "name": "TTL_sec"
+        },
+        "axfr_ips": {
+          "required": false,
+          "description": "IP addresses allowed to AXFR the entire zone, semicolon separated",
+          "type": "string",
+          "default": "",
+          "name": "axfr_ips"
+        },
+        "Description": {
+          "required": false,
+          "description": "Currently undisplayed.",
+          "type": "string",
+          "default": "",
+          "name": "Description"
+        },
+        "lpm_displayGroup": {
+          "required": false,
+          "description": "Display group in the Domain list inside the Linode DNS Manager",
+          "type": "string",
+          "default": "",
+          "name": "lpm_displayGroup"
+        },
+        "Refresh_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "default": 0,
+          "name": "Refresh_sec"
+        },
+        "SOA_Email": {
+          "required": false,
+          "description": "Required when type=master",
+          "type": "string",
+          "default": "",
+          "name": "SOA_Email"
+        },
+        "Type": {
+          "required": true,
+          "description": "master or slave",
+          "type": "string",
+          "name": "Type"
+        },
+        "Expire_sec": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "default": 0,
+          "name": "Expire_sec"
+        },
+        "master_ips": {
+          "required": false,
+          "description": "When type=slave, the zone's master DNS servers list, semicolon separated ",
+          "type": "string",
+          "default": "",
+          "name": "master_ips"
+        }
+      }
+    },
+    "linode.delete": {
+      "description": "Immediately removes a Linode from your account and issues a pro-rated credit back to your account, if applicable.  To prevent accidental deletes, this requires the Linode has no Disk images.  You must first delete its disk images.\"",
+      "throws": "NOTFOUND,LINODENOTEMPTY",
+      "parameters": {
+        "LinodeID": {
+          "required": true,
+          "description": "The LinodeID to delete",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "skipChecks": {
+          "required": false,
+          "description": "Skips the safety checks and will always delete the Linode",
+          "type": "boolean",
+          "name": "skipChecks"
+        }
+      }
+    },
+    "domain.resource.update": {
+      "description": "Update a domain record.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "Target": {
+          "required": false,
+          "description": "When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.",
+          "type": "string",
+          "name": "Target"
+        },
+        "TTL_sec": {
+          "required": false,
+          "description": "TTL.  Leave as 0 to accept our default.",
+          "type": "numeric",
+          "name": "TTL_sec"
+        },
+        "Port": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "Port"
+        },
+        "DomainID": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "DomainID"
+        },
+        "Protocol": {
+          "required": false,
+          "description": "The protocol to append to an SRV record.  Ignored on other record types.",
+          "type": "string",
+          "name": "Protocol"
+        },
+        "Priority": {
+          "required": false,
+          "description": "Priority for MX and SRV records, 0-65535",
+          "type": "numeric",
+          "name": "Priority"
+        },
+        "Weight": {
+          "required": false,
+          "description": "",
+          "type": "numeric",
+          "name": "Weight"
+        },
+        "ResourceID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ResourceID"
+        },
+        "Name": {
+          "required": false,
+          "description": "The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.",
+          "type": "string",
+          "name": "Name"
+        }
+      }
+    },
+    "image.update": {
+      "description": "Update an Image record.",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "description": {
+          "required": false,
+          "description": "An optional description of the Image.",
+          "type": "string",
+          "name": "description"
+        },
+        "label": {
+          "required": false,
+          "description": "The label of the Image.",
+          "type": "string",
+          "name": "label"
+        },
+        "ImageID": {
+          "required": true,
+          "description": "The ID of the Image to modify.",
+          "type": "numeric",
+          "name": "ImageID"
+        }
+      }
+    },
+    "volume.create": {
+      "description": "Creates a new block storage volume. One of DatacenterID or LinodeID is required.",
+      "throws": "NOACCESS, VALIDATION",
+      "parameters": {
+        "Label": {
+          "required": true,
+          "description": "A unique name for the volume",
+          "type": "string",
+          "name": "Label"
+        },
+        "LinodeID": {
+          "required": false,
+          "description": "The Linode to attach this volume to",
+          "type": "numeric",
+          "default": "",
+          "name": "LinodeID"
+        },
+        "DatacenterID": {
+          "required": false,
+          "description": "Sets the datacenter where the volume should be provisioned",
+          "type": "numeric",
+          "default": "",
+          "name": "DatacenterID"
+        },
+        "Size": {
+          "required": true,
+          "description": "Sets the size of the new volume in GiB",
+          "type": "numeric",
+          "name": "Size"
+        }
+      }
+    },
+    "api.spec": {
+      "description": "Returns a data structure of the entire Linode API specification.  This method does not require authorization.<br><br>For example: <a target=\"_blank\" href=\"https://api.linode.com/?api_action=api.spec\">https://api.linode.com/?api_action=api.spec</a>",
+      "throws": "",
+      "parameters": {}
+    },
+    "linode.disk.createfromstackscript": {
+      "description": "",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "StackScriptUDFResponses": {
+          "required": true,
+          "description": "JSON encoded name/value pairs, answering this StackScript's User Defined Fields",
+          "type": "string",
+          "name": "StackScriptUDFResponses"
+        },
+        "rootPass": {
+          "required": true,
+          "description": "The root user's password",
+          "type": "string",
+          "name": "rootPass"
+        },
+        "Size": {
+          "required": true,
+          "description": "Size of this disk image in MB",
+          "type": "numeric",
+          "name": "Size"
+        },
+        "StackScriptID": {
+          "required": true,
+          "description": "The StackScript to create this image from",
+          "type": "numeric",
+          "name": "StackScriptID"
+        },
+        "LinodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "Label": {
+          "required": true,
+          "description": "The label of this new disk image",
+          "type": "string",
+          "name": "Label"
+        },
+        "rootSSHKey": {
+          "required": false,
+          "description": "Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.",
+          "type": "string",
+          "name": "rootSSHKey"
+        },
+        "DistributionID": {
+          "required": true,
+          "description": "Which Distribution to apply this StackScript to.  Must be one from the script's DistributionIDList",
+          "type": "numeric",
+          "name": "DistributionID"
+        }
+      }
+    },
+    "nodebalancer.update": {
+      "description": "Updates a NodeBalancer's properties",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "NodeBalancerID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "NodeBalancerID"
+        },
+        "Label": {
+          "required": false,
+          "description": "This NodeBalancer's label",
+          "type": "string",
+          "name": "Label"
+        },
+        "ClientConnThrottle": {
+          "required": false,
+          "description": "To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.",
+          "type": "numeric",
+          "name": "ClientConnThrottle"
+        }
+      }
+    },
+    "avail.datacenters": {
+      "description": "Returns a list of Linode data center facilities.",
+      "throws": "",
+      "parameters": {}
+    },
+    "account.estimateinvoice": {
+      "description": "Estimates the invoice for adding a new Linode or NodeBalancer as well as resizing a Linode. This returns two fields: PRICE which is the estimated cost of the invoice, and INVOICE_TO which is the date invoice would be though with timezone set to America/New_York",
+      "throws": "VALIDATION",
+      "parameters": {
+        "LinodeID": {
+          "required": false,
+          "description": "This is the LinodeID you want to resize and is required for mode 'linode_resize'.",
+          "type": "numeric",
+          "name": "LinodeID"
+        },
+        "PaymentTerm": {
+          "required": false,
+          "description": "Subscription term in months. One of: 1, 12, or 24. This is required for modes 'linode_new' and 'nodebalancer_new'.",
+          "type": "numeric",
+          "name": "PaymentTerm"
+        },
+        "PlanID": {
+          "required": false,
+          "description": "The desired PlanID available from avail.LinodePlans(). This is required for modes 'linode_new' and 'linode_resize'.",
+          "type": "numeric",
+          "name": "PlanID"
+        },
+        "mode": {
+          "required": true,
+          "description": "This is one of the following options: 'linode_new', 'linode_resize', or 'nodebalancer_new'.",
+          "type": "string",
+          "name": "mode"
+        }
+      }
+    },
+    "user.getapikey": {
+      "description": "Authenticates a Linode Manager user against their username, password, and two-factor token (when enabled), and then returns a new API key, which can be used until it expires.  The number of active keys is limited to 20.  Batch requests will be rejected if they include this API action.",
+      "throws": "AUTHFAIL,NEEDTOKEN,PASSWORDEXPIRED,KEYLIMIT,TOTPEXPIRED,NOACCESS",
+      "parameters": {
+        "username": {
+          "required": true,
+          "description": "",
+          "type": "string",
+          "name": "username"
+        },
+        "label": {
+          "required": false,
+          "description": "An optional label for this key.",
+          "type": "string",
+          "name": "label"
+        },
+        "password": {
+          "required": true,
+          "description": "",
+          "type": "string",
+          "name": "password"
+        },
+        "token": {
+          "required": false,
+          "description": "Required when two-factor authentication is enabled. Emergency scratch codes are not permitted.",
+          "type": "string",
+          "name": "token"
+        },
+        "expires": {
+          "required": false,
+          "description": "Number of hours the key will remain valid, between 0 and 8760. 0 means no expiration. Defaults to 168.",
+          "type": "numeric",
+          "name": "expires"
+        }
+      }
+    },
+    "nodebalancer.node.update": {
+      "description": "Updates a Node's properties",
+      "throws": "NOTFOUND,VALIDATION",
+      "parameters": {
+        "Label": {
+          "required": false,
+          "description": "This backend Node's label",
+          "type": "string",
+          "name": "Label"
+        },
+        "Weight": {
+          "required": false,
+          "description": "Load balancing weight, 1-255. Higher means more connections.",
+          "type": "numeric",
+          "name": "Weight"
+        },
+        "NodeID": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "NodeID"
+        },
+        "Address": {
+          "required": false,
+          "description": "The address:port combination used to communicate with this Node",
+          "type": "string",
+          "name": "Address"
+        },
+        "Mode": {
+          "required": false,
+          "description": "The connections mode for this node.  One of 'accept', 'reject', or 'drain'",
+          "type": "string",
+          "name": "Mode"
+        }
+      }
+    },
+    "account.updatecard": {
+      "description": "",
+      "throws": "",
+      "parameters": {
+        "ccNumber": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ccNumber"
+        },
+        "ccExpYear": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ccExpYear"
+        },
+        "ccExpMonth": {
+          "required": true,
+          "description": "",
+          "type": "numeric",
+          "name": "ccExpMonth"
+        }
+      }
+    }
+  }
+}

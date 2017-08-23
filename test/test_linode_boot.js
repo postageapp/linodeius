@@ -1,13 +1,7 @@
 require('./harness');
 
 describe('linode', function() {
-  var api;
-
-  before(function() {
-    api = new Linode();
-
-    return api.then(function() { });
-  });
+  var api = new Linode();
 
   describe('linode.boot', function() {
     it('should require LinodeID parameter', function() {

@@ -1,6 +1,6 @@
 {
   "name": "linodeius",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Linode API Client",
   "main": "lib/linodeius.js",
   "scripts": {

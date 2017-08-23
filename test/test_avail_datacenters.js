@@ -1,13 +1,7 @@
 require('./harness');
 
 describe('avail', function() {
-  var api;
-
-  before(function() {
-    api = new Linode();
-
-    return api.then(function() { });
-  });
+  var api = new Linode();
 
   describe('avail.datacenters', function() {
     it('should return a list of available datacenters', function() {

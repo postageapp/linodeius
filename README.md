@@ -1,26 +1,31 @@
 # Linodeius
 
 This is a promise-based [Node.js](https://nodejs.org/en/) client for the
-[Linode API](https://www.linode.com/api).
-
-**NOTE:** This is a work in progress. The interface is subject to change.
+[Linode API](https://www.linode.com/api) version 3.3.
 
 ## Installation
 
-As with any NPM package:
+Install the NPM package and any dependencies automatically with:
 
-    npm install linodeius
+    npm install linodeius --save
 
 For use in an application:
 
     const Linode = require('linodeius');
     const api = new Linode(api_key);
 
-    api.then(function() {
-      api.linode.list().then(function(linodes) {
-        // Use linodes data.
-      });
+    api.linode.list().then(linodes => {
+      // ...
     });
+
+Or for Node.js 8+ with support for async/await:
+
+    const Linode = require('linodeius');
+    const api = new Linode(api_key);
+
+    let linodes = await api.linode.list();
+
+    // ...
 
 ## Configuration
 
@@ -42,7 +47,7 @@ that order of priority.
 
 ## License and Copyright
 
-Copyright (C) 2016 Scott Tadman <tadman@postageapp.com>,
+Copyright (C) 2016-2017 Scott Tadman <tadman@postageapp.com>,
 [PostageApp](http://postageapp.com/).
 
 Licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
