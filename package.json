@@ -21,16 +21,16 @@
   },
   "homepage": "https://github.com/postageapp/linodeius#readme",
   "devDependencies": {
-    "chai": "^4.1.1",
+    "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.2",
-    "gulp": "^3.9.1",
-    "mocha": "^3.5.0"
+    "gulp": "^4.0.0",
+    "mocha": "^5.2.0"
   },
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "commander": "^2.11.0",
-    "lodash": "^4.17.4",
-    "merge": "^1.2.0",
-    "request": "^2.81.0"
+    "bluebird": "^3.5.3",
+    "commander": "^2.19.0",
+    "lodash": "^4.17.11",
+    "merge": "^1.2.1",
+    "request": "^2.88.0"
   }
 }
