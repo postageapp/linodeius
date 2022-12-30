@@ -24,7 +24,7 @@
     "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.3",
     "gulp": "^4.0.2",
-    "mocha": "^6.1.4"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
